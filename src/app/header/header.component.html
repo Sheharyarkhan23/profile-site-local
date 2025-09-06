@@ -1,0 +1,34 @@
+<nav class="bg-black text-white sticky top-0 z-50 shadow-md">
+  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="#" class="text-2xl font-bold tracking-wider">VISION</a>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center space-x-8">
+      <a href="#home" class="hover:text-gray-400 transition-colors">HOME</a>
+      <a href="#about" class="hover:text-gray-400 transition-colors">ABOUT</a>
+      <a href="#projects" class="hover:text-gray-400 transition-colors">WORK</a>
+      <a href="#skills" class="hover:text-gray-400 transition-colors">SKILLS</a>
+      <a href="#contact" class="bg-white text-black font-bold py-2 px-6 rounded-full shadow-lg hover:bg-gray-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+        START A PROJECT &rarr;
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <div class="md:hidden">
+      <button (click)="toggleMenu()" class="focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div [class.hidden]="!isMenuOpen" class="md:hidden bg-black">
+    <a href="#home" class="block px-6 py-3 hover:bg-gray-800 transition-colors">HOME</a>
+    <a href="#about" class="block px-6 py-3 hover:bg-gray-800 transition-colors">ABOUT</a>
+    <a href="#projects" class="block px-6 py-3 hover:bg-gray-800 transition-colors">WORK</a>
+    <a href="#skills" class="block px-6 py-3 hover:bg-gray-800 transition-colors">SKILLS</a>
+    <a href="#contact" class="block px-6 py-3 hover:bg-gray-800 transition-colors">START A PROJECT</a>
+  </div>
+</nav>

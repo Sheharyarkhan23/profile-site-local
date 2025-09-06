@@ -1,0 +1,17 @@
+<div *ngIf="project" class="bg-black text-white min-h-screen">
+  <!-- Banner Image -->
+  <div class="h-64 md:h-96 bg-cover bg-center" [style.backgroundImage]="'url(' + project.bannerImage + ')'"></div>
+
+  <div class="container mx-auto px-6 py-12">
+    <!-- Project Title -->
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">{{ project.title }}</h1>
+    
+    <!-- Project Category -->
+    <p class="text-lg text-gray-400 uppercase tracking-wider mb-8">{{ project.category }}</p>
+
+    <!-- Project Description -->
+    <div class="max-w-3xl mx-auto text-lg text-gray-300 leading-relaxed">
+      <p>{{ project.description }}</p>
+    </div>
+  </div>
+</div>
