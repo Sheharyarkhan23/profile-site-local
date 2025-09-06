@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule, Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { Project } from '../models/project.model';
 
 @Component({
   selector: 'app-project-detail',
@@ -10,10 +11,9 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./project-detail.component.css']
 })
 export class ProjectDetailComponent implements OnInit {
-  project: any;
+  project: Project | undefined;
 
-  // Temporary project data - in a real app, this would come from a service
-  projects = [
+  projects: Project[] = [
     {
       id: 1,
       category: 'DATA ANALYSIS & MACHINE LEARNING',
@@ -34,9 +34,33 @@ export class ProjectDetailComponent implements OnInit {
       id: 3,
       category: 'WEB DEVELOPMENT',
       title: 'Car Rental System',
-      description: 'A comprehensive car rental management system developed for a company in Dubai.',
-      image: 'https://via.placeholder.com/400x300.png/2d2d2d/ffffff?text=Project+3',
-      bannerImage: 'https://via.placeholder.com/1200x400.png/2d2d2d/ffffff?text=Car+Rental'
+      description: `
+        <div class="feature-summary">
+    <h2>Dubai Car Rental Management System - Complete Admin Dashboard</h2>
+    
+    <div class="feature-section">
+        <h3>1. Live Fleet Management & Tracking</h3>
+        <ul>
+            <li><strong>Real-Time Status Overview:</strong> Instantly see every vehicle in your fleet, with clear indicators for Available, On Lease, Under Maintenance, or Cleaning.</li>
+            <li><strong>Detailed Vehicle Profiles:</strong> Access all details for each car (make, model, VIN, registration, insurance) in one central location.</li>
+        </ul>
+    </div>
+    
+    <div class="feature-section">
+        <h3>2. Financial Performance & Yield Analytics</h3>
+        <ul>
+            <li><strong>Per-Car Profitability Reports:</strong> Track exactly how much revenue each vehicle generates against its operational costs.</li>
+            <li><strong>Data-Driven Decisions:</strong> Identify your highest and lowest-yielding cars to optimize your fleet composition and pricing strategy for maximum ROI.</li>
+        </ul>
+    </div>
+    
+    <div class="feature-section">
+        <h3>3. Integrated Task Management System</h3>
+        <ul>
+         </ul>
+         </div>`,
+      image: 'https://i.ibb.co/bR8M6mnV/fleetmanagmentsystem.png',
+      bannerImage: 'https://i.ibb.co/bR8M6mnV/fleetmanagmentsystem.png'
     },
     {
       id: 4,
@@ -64,7 +88,11 @@ export class ProjectDetailComponent implements OnInit {
     }
   ];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private location: Location) { }
+
+  goBack(): void {
+    this.location.back();
+  }
 
   ngOnInit(): void {
     const projectId = this.route.snapshot.paramMap.get('id');
@@ -73,3 +101,4 @@ export class ProjectDetailComponent implements OnInit {
     }
   }
 }
+

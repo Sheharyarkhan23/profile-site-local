@@ -1,8 +1,13 @@
-<div *ngIf="project" class="bg-black text-white min-h-screen">
+@if(project){
+<div class="bg-black text-white min-h-screen">
   <!-- Banner Image -->
-  <div class="h-64 md:h-96 bg-cover bg-center" [style.backgroundImage]="'url(' + project.bannerImage + ')'"></div>
+  <div class="h-64 md:h-96 bg-cover bg-center" [ngStyle]="{'background-image': 'url(' + project.bannerImage + ')'}"></div>
 
   <div class="container mx-auto px-6 py-12">
+    <!-- Back Button -->
+    <button (click)="goBack()" class="mb-8 bg-white text-black font-bold py-2 px-4 rounded-md shadow-lg hover:bg-gray-300 hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+      &larr; Back to Projects
+    </button>
     <!-- Project Title -->
     <h1 class="text-4xl md:text-6xl font-bold mb-4">{{ project.title }}</h1>
     
@@ -11,7 +16,8 @@
 
     <!-- Project Description -->
     <div class="max-w-3xl mx-auto text-lg text-gray-300 leading-relaxed">
-      <p>{{ project.description }}</p>
+      <div [innerHTML]="project.description"></div>
     </div>
   </div>
 </div>
+}
