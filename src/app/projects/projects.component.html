@@ -5,7 +5,7 @@
       @for(project of projects; track $index){  
       <a  [routerLink]="['/projectdetails', project.id]" class="block bg-[#0d0d0d] rounded-lg shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
         <div class="relative h-56 pb-[6.25%]">
-          <img [src]="project.image" alt="{{ project.title }}" class="absolute inset-0 h-full w-full object-cover"/>
+          <img [src]="project.image" alt="{{ project.title }}" style="width:100%; height:100%;"/>
         </div>
         <div class="p-6">
           <p class="text-sm text-gray-400 uppercase tracking-wider">{{ project.category }}</p>
